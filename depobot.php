@@ -1,6 +1,9 @@
 #!/usr/bin/env php
 
 <?php
+#created by moutarlier aldwin 2017
+
+#the asciiart for the robot
 $robot =  "                 _______\n               _/       \\_\n              / |       | \\\n             /  |__   __|  \\\n            |__/((o| |o))\\__|\n            |      | |      |\n            |\\     |_|     /|\n            | \\           / |\n             \\| /  ___  \\ |/\n              \\ | / _ \\ | /\n               \\_________/\n                _|_____|_\n           ____|_________|____\n          /                   \\\n";
 
 system('clear');
