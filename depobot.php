@@ -1,13 +1,11 @@
 #!/usr/bin/env php
 
 <?php
-
-#copyright Moutarlier aldwin 2017
 $robot =  "                 _______\n               _/       \\_\n              / |       | \\\n             /  |__   __|  \\\n            |__/((o| |o))\\__|\n            |      | |      |\n            |\\     |_|     /|\n            | \\           / |\n             \\| /  ___  \\ |/\n              \\ | / _ \\ | /\n               \\_________/\n                _|_____|_\n           ____|_________|____\n          /                   \\\n";
 
 system('clear');
 echo $robot;
-echo 'Hello ! I\' here for help you in blih ! Do you want help ? yes or no :';  
+echo 'Hello ! I\'m here for help you in blih ! Do you want help ? yes or no :';  
 $handle = fopen("php://stdin", "r");
 $rep = trim(fgets($handle));
 if($rep == 'yes' && $rep != ''){
@@ -29,7 +27,7 @@ if($rep == 'yes' && $rep != ''){
             fclose($handle1);
             system('clear');
             echo $robot;
-            echo 'if you want give rules give me the name of the person else say no :';
+            echo 'if you want give lecture rules give me the name of the person else say no :';
             $handle2 = fopen('php://stdin', 'r');
             $droitsLecture = trim(fgets($handle2));
             if($droitsLecture != '' && $droitsLecture != 'no'){
@@ -47,8 +45,22 @@ if($rep == 'yes' && $rep != ''){
                     $handle3 = fopen('php://stdin', 'r');
                     $path = trim(fgets($handle3));
                     if($path != '' && $path != 'no'){
-                        shell_exec('git clone git@git.epitech.eu:'.$nameUser.'/'.$nameDepo.' '.$path);
-                        fclose($handle3);
+                        if(is_dir($path)){
+                            system('clear');
+                            echo $robot;
+                            echo 'This directory "'.$path.'" is not empty !'."\n";
+                            for($i=0;$i<1000;$i++){
+                                if($i=1000){
+                                    system('clear');
+                                    echo $robot; 
+                                    echo 'Do you want try this dir :'."\n";
+                                    system('ls -a');
+                                }
+                            }
+                        }else{
+                            shell_exec('git clone git@git.epitech.eu:'.$nameUser.'/'.$nameDepo.' '.$path);
+                            fclose($handle3);
+                        }
                     }elseif ($path == 'no') {
                             system('clear');
                             echo $robot;
@@ -189,5 +201,4 @@ if($rep == 'yes' && $rep != ''){
         }
     }
 }
-
 
